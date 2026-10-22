@@ -1,0 +1,38 @@
+.board {
+  display: grid;
+  gap: 0.25rem;
+  width: min(100%, 560px);
+  margin-inline: auto;
+}
+.legend {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0;
+  margin: 1rem 0 0;
+  font-size: 0.85rem;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.swatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 1px solid #777;
+  border-radius: 0.15rem;
+}
+.unexplored {
+  background: #555b64;
+}
+.explored {
+  background: #b9bec6;
+}
+.symbol {
+  font-weight: 800;
+}
+.hunter-symbol {
+  color: #198754;
+}

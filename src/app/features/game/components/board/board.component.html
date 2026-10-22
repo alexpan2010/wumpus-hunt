@@ -1,0 +1,36 @@
+<app-card title="Board">
+  <div
+    class="board"
+    [style.grid-template-columns]="
+      'repeat(' + state().board.size + ', minmax(0, 1fr))'
+    "
+    role="group"
+    aria-label="Game board"
+  >
+    @for (cell of cells(); track cell.row + "," + cell.col) {
+      <app-board-cell
+        [row]="cell.row"
+        [col]="cell.col"
+        [visited]="visited(cell)"
+        [hunter]="state().board.hunter"
+        [hunterStatus]="state().status"
+        [showPit]="showPit(cell)"
+        [showWumpus]="showWumpus(cell)"
+        [isGold]="showGold(cell)"
+        [isExit]="
+          state().board.exit.row === cell.row &&
+          state().board.exit.col === cell.col
+        "
+      />
+    }
+  </div>
+  <ul class="legend" aria-label="Board legend">
+    <li><span class="swatch unexplored"></span> Unexplored</li>
+    <li><span class="swatch explored"></span> Explored</li>
+    <li><span class="symbol hunter-symbol">➤</span> Hunter</li>
+    <li><span class="symbol">●</span> Pit (shown on death)</li>
+    <li><span class="symbol">♟</span> Wumpus (shown on death)</li>
+    <li><span class="symbol">◆</span> Gold (shown when collected)</li>
+    <li><span class="symbol">E</span> Exit</li>
+  </ul>
+</app-card>

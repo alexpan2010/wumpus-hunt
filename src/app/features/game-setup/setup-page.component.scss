@@ -1,0 +1,21 @@
+.setup {
+  width: min(480px, calc(100% - 2rem));
+  margin: 3rem auto;
+}
+h1 {
+  font-size: 1.6rem;
+  margin: 0 0 1.25rem;
+}
+form {
+  display: grid;
+  gap: 1rem;
+}
+.help {
+  color: #555b64;
+  font-size: 0.9rem;
+  margin: 0;
+}
+.error {
+  color: #a31c1c;
+  margin: 0;
+}

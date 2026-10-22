@@ -1,0 +1,15 @@
+<main>
+  <div class="topline">
+    <h1>Wumpus Hunt</h1>
+    <app-button text="Back" type="outline" (clicked)="goBack()" />
+  </div>
+  @if (facade.state(); as state) {
+    <div class="layout">
+      <app-board [state]="state" />
+      <aside>
+        <app-status-card [state]="state" />
+        <app-controls-card [state]="state" (action)="onAction($event)" />
+      </aside>
+    </div>
+  }
+</main>

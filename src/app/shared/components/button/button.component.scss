@@ -1,0 +1,16 @@
+button {
+  border: 1px solid #20242a;
+  border-radius: 0.4rem;
+  padding: 0.65rem 0.9rem;
+  background: #20242a;
+  color: white;
+  cursor: pointer;
+}
+button.outline {
+  background: transparent;
+  color: #20242a;
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

@@ -1,0 +1,13 @@
+<div
+  class="cell"
+  [class.visited]="visited()"
+  [class.hunter]="isHunter"
+  [class.dead]="
+    isHunter && hunterStatus() !== 'playing' && hunterStatus() !== 'won'
+  "
+  [class.victory]="isHunter && hunterStatus() === 'won'"
+  [attr.aria-label]="accessibleName"
+  role="img"
+>
+  {{ symbol }}
+</div>

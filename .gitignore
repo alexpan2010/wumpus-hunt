@@ -1,0 +1,8 @@
+/.angular/
+/.cache/
+/coverage/
+/dist/
+/node_modules/
+/out-tsc/
+/.vscode
+.DS_Store

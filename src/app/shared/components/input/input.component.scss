@@ -1,0 +1,18 @@
+:host {
+  display: grid;
+  gap: 0.35rem;
+}
+label {
+  font-weight: 600;
+}
+input {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #858b94;
+  border-radius: 0.35rem;
+  background: white;
+}
+.error {
+  color: #a31c1c;
+  font-size: 0.875rem;
+}

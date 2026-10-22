@@ -1,0 +1,15 @@
+.controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+.hint {
+  color: #555b64;
+  font-size: 0.85rem;
+  margin: 0.85rem 0 0;
+}
+@media (max-width: 420px) {
+  .controls {
+    grid-template-columns: 1fr;
+  }
+}

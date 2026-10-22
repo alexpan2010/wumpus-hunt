@@ -1,0 +1,37 @@
+<app-card title="Controls">
+  <div class="controls">
+    <app-button
+      text="Move forward"
+      [disabled]="terminal"
+      (clicked)="action.emit('forward')"
+    />
+    <app-button
+      text="Turn left"
+      type="outline"
+      [disabled]="terminal"
+      (clicked)="action.emit('left')"
+    />
+    <app-button
+      text="Turn right"
+      type="outline"
+      [disabled]="terminal"
+      (clicked)="action.emit('right')"
+    />
+    <app-button
+      text="Shoot arrow"
+      [disabled]="terminal"
+      (clicked)="action.emit('shoot')"
+    />
+    <app-button
+      text="Exit with gold"
+      [disabled]="terminal"
+      (clicked)="action.emit('exit')"
+    />
+    <app-button
+      text="Start another game"
+      type="outline"
+      (clicked)="action.emit('restart')"
+    />
+  </div>
+  <p class="hint">Use the buttons to control the hunter.</p>
+</app-card>

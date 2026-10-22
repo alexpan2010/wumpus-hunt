@@ -1,0 +1,38 @@
+<main class="setup">
+  <h1>Wumpus Hunt</h1>
+  <app-card title="Game setup">
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <app-input
+        label="Board size (N × N)"
+        id="board-size"
+        [control]="form.controls.size"
+        [min]="2"
+        [max]="20"
+      />
+      <app-input
+        label="Number of pits"
+        id="pit-count"
+        [control]="form.controls.pits"
+        [min]="0"
+        [max]="form.controls.size.value * form.controls.size.value - 4"
+      />
+      @if (pitsExceedBoard && form.controls.pits.touched) {
+        <p class="error" role="alert">
+          Too many pits for this board. Leave room for the hunter, exit, Wumpus
+          and gold.
+        </p>
+      }
+      <app-input
+        label="Number of arrows"
+        id="arrow-count"
+        [control]="form.controls.arrows"
+        [min]="0"
+        [max]="400"
+      />
+      <p class="help">
+        The board size must be between 2 and 20. Pits and arrows can be zero.
+      </p>
+      <app-button text="Start game" htmlType="submit" />
+    </form>
+  </app-card>
+</main>
