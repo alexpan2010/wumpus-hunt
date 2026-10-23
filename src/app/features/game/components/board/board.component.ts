@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { GameState, Position, samePosition } from "../../../../core/game.types";
+
+import { GameState, Position } from "../../../../core/game.types";
 import { BoardCellComponent } from "../../../../shared/components/board-cell/board-cell.component";
 import { CardComponent } from "../../../../shared/components/card/card.component";
+import { samePosition } from "../../../../shared/utils/positionFunctions";
 
 @Component({
   selector: "app-board",
@@ -13,7 +15,26 @@ import { CardComponent } from "../../../../shared/components/card/card.component
 })
 export class BoardComponent {
   state = input.required<GameState>();
-  cells(): Position[] {
+
+  legendItems: { label: string; symbol: string; optionalClassName?: string }[] =
+    [
+      {
+        label: "Unexplored",
+        symbol: "",
+        optionalClassName: "unexplored",
+      },
+      {
+        label: "Explored",
+        symbol: "",
+        optionalClassName: "explored",
+      },
+      {
+        label: "Exit",
+        symbol: "E",
+      },
+    ];
+
+  get cells(): Position[] {
     const size = this.state().board.size;
     return Array.from({ length: size * size }, (_, index) => ({
       row: Math.floor(index / size),
@@ -23,25 +44,5 @@ export class BoardComponent {
 
   visited(position: Position): boolean {
     return this.state().board.visited.some((p) => samePosition(p, position));
-  }
-
-  showPit(position: Position): boolean {
-    return (
-      this.state().status === "dead-pit" &&
-      samePosition(position, this.state().board.hunter)
-    );
-  }
-
-  showWumpus(position: Position): boolean {
-    return (
-      this.state().status === "dead-wumpus" &&
-      samePosition(position, this.state().board.hunter)
-    );
-  }
-
-  showGold(position: Position): boolean {
-    return (
-      this.state().hasGold && samePosition(position, this.state().board.hunter)
-    );
   }
 }

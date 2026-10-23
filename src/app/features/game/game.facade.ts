@@ -1,4 +1,5 @@
-import { Injectable, computed, signal } from "@angular/core";
+import { Injectable, signal } from "@angular/core";
+
 import { BoardGeneratorService } from "../../core/services/board-generator/board-generator.service";
 import { GameEngineService } from "../../core/services/game-engine/game-engine.service";
 import { GameConfig, GameState, Position } from "../../core/game.types";
@@ -7,12 +8,6 @@ import { GameConfig, GameState, Position } from "../../core/game.types";
 export class GameFacade {
   private readonly current = signal<GameState | null>(null);
   readonly state = this.current.asReadonly();
-  readonly isTerminal = computed(() => {
-    const status = this.current()?.status;
-    return (
-      status === "won" || status === "dead-pit" || status === "dead-wumpus"
-    );
-  });
 
   constructor(
     private readonly generator: BoardGeneratorService,

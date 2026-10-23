@@ -1,4 +1,5 @@
 import { TestBed } from "@angular/core/testing";
+
 import { GameFacade } from "./game.facade";
 
 describe("GameFacade", () => {
@@ -12,7 +13,6 @@ describe("GameFacade", () => {
   it("starts a game with signal state and can act", () => {
     facade.start({ size: 4, pits: 2, arrows: 1 });
     expect(facade.state()?.board.size).toBe(4);
-    expect(facade.isTerminal()).toBeFalse();
     facade.act("right");
     expect(facade.state()?.direction).toBe("east");
   });

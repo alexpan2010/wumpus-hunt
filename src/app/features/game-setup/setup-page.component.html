@@ -16,12 +16,14 @@
         [min]="0"
         [max]="form.controls.size.value * form.controls.size.value - 4"
       />
+
       @if (pitsExceedBoard && form.controls.pits.touched) {
         <p class="error" role="alert">
           Too many pits for this board. Leave room for the hunter, exit, Wumpus
           and gold.
         </p>
       }
+
       <app-input
         label="Number of arrows"
         id="arrow-count"

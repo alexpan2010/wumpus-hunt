@@ -3,6 +3,7 @@
     <h1>Wumpus Hunt</h1>
     <app-button text="Back" type="outline" (clicked)="goBack()" />
   </div>
+
   @if (facade.state(); as state) {
     <div class="layout">
       <app-board [state]="state" />

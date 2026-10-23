@@ -1,14 +1,11 @@
 import { Injectable } from "@angular/core";
-import {
-  GameBoard,
-  GameConfig,
-  Position,
-  samePosition,
-} from "../../game.types";
+
+import { GameBoard, GameConfig, Position } from "../../game.types";
+import { samePosition } from "../../../shared/utils/positionFunctions";
 
 @Injectable({ providedIn: "root" })
 export class BoardGeneratorService {
-  generate(config: GameConfig, random: () => number = Math.random): GameBoard {
+  generate(config: GameConfig): GameBoard {
     this.validate(config);
     const size = config.size;
     const hunter = { row: size - 1, col: 0 };
@@ -24,7 +21,8 @@ export class BoardGeneratorService {
     }
 
     for (let i = available.length - 1; i > 0; i--) {
-      const j = Math.floor(random() * (i + 1));
+      const j = Math.floor(Math.random() * (i + 1));
+
       [available[i], available[j]] = [available[j], available[i]];
     }
 

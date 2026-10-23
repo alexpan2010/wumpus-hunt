@@ -17,12 +17,14 @@
 dt {
   color: $dark-grey;
 }
+
 dd {
   margin: 0;
   font-weight: 600;
   text-align: right;
   text-transform: capitalize;
 }
+
 .message {
   margin: $m-xs 0 0;
   padding: $p-md;

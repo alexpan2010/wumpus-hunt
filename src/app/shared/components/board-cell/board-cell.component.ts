@@ -1,5 +1,12 @@
-import { ChangeDetectionStrategy, Component, input } from "@angular/core";
-import { Position, samePosition } from "../../../core/game.types";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+} from "@angular/core";
+
+import { Position } from "../../../core/game.types";
+import { samePosition } from "../../utils/positionFunctions";
 
 @Component({
   selector: "app-board-cell",
@@ -16,42 +23,29 @@ export class BoardCellComponent {
   hunterStatus = input<"playing" | "dead-pit" | "dead-wumpus" | "won">(
     "playing",
   );
-  showPit = input(false);
-  showWumpus = input(false);
-  isGold = input(false);
   isExit = input(false);
 
-  get isHunter(): boolean {
+  isHunter = computed<boolean>(() => {
     const position = this.hunter();
     return (
       !!position && samePosition(position, { row: this.row(), col: this.col() })
     );
-  }
+  });
 
-  get symbol(): string {
-    if (this.isHunter)
-      return this.hunterStatus() === "won"
-        ? "➤"
-        : this.hunterStatus() === "playing"
-          ? "➤"
-          : "✖";
-    if (this.showWumpus()) return "♟";
-    if (this.showPit()) return "●";
-    if (this.isGold()) return "◆";
+  symbol = computed<string>(() => {
+    if (this.isHunter())
+      return ["won", "playing"].includes(this.hunterStatus()) ? "You" : "✖";
     if (this.isExit()) return "E";
     return "";
-  }
+  });
 
-  get accessibleName(): string {
-    if (this.isHunter)
+  accessibleName = computed<string>(() => {
+    if (this.isHunter())
       return `Hunter at row ${this.row()}, column ${this.col()}, ${this.hunterStatus()}`;
-    if (this.showWumpus()) return "Wumpus";
-    if (this.showPit()) return "Bottomless pit";
-    if (this.isGold()) return "Gold";
     if (this.isExit()) return "Exit";
 
     return this.visited()
       ? `Explored cell row ${this.row()}, column ${this.col()}`
       : `Unexplored cell row ${this.row()}, column ${this.col()}`;
-  }
+  });
 }

@@ -1,6 +1,7 @@
 import { inject } from "@angular/core";
 import { Location } from "@angular/common";
 import { RedirectCommand, ResolveFn, Router } from "@angular/router";
+
 import { GameConfig } from "../../core/game.types";
 
 export const gameConfigResolver: ResolveFn<GameConfig> = () => {

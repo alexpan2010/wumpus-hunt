@@ -6,6 +6,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
+
 import { ButtonComponent } from "../../shared/components/button/button.component";
 import { CardComponent } from "../../shared/components/card/card.component";
 import { InputComponent } from "../../shared/components/input/input.component";
@@ -63,7 +64,9 @@ export class SetupPageComponent {
 
   submit(): void {
     this.form.markAllAsTouched();
+
     if (this.form.invalid || this.pitsExceedBoard) return;
+
     void this.router.navigate(["/game"], {
       state: { config: this.form.getRawValue() },
     });

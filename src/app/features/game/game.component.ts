@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { Location } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
+
 import { GameFacade } from "./game.facade";
 import { BoardComponent } from "./components/board/board.component";
 import { StatusCardComponent } from "./components/status-card/status-card.component";

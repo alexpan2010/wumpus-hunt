@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { ActivatedRoute } from "@angular/router";
+
 import { GameComponent } from "./game.component";
 
 const testConfig = { size: 3, pits: 0, arrows: 1 };

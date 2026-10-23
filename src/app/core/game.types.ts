@@ -40,15 +40,3 @@ export interface GameState {
   message: string;
   lastEvent: "none" | "bump" | "scream";
 }
-export const DIRECTIONS: readonly Direction[] = [
-  "north",
-  "east",
-  "south",
-  "west",
-];
-export function samePosition(a: Position, b: Position): boolean {
-  return a.row === b.row && a.col === b.col;
-}
-export function positionKey(position: Position): string {
-  return `${position.row},${position.col}`;
-}

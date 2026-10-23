@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, input } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  input,
+} from "@angular/core";
+
 import { GameEngineService } from "../../../../core/services/game-engine/game-engine.service";
 import { GameState } from "../../../../core/game.types";
 import { CardComponent } from "../../../../shared/components/card/card.component";
@@ -19,4 +25,27 @@ export class StatusCardComponent {
   perception(): string {
     return this.engine.perception(this.state());
   }
+
+  statusCardItems = computed<Record<"label" | "message", string>[]>(() => [
+    {
+      label: "Facing",
+      message: this.state().direction,
+    },
+    {
+      label: "Arrows left",
+      message: String(this.state().arrowsLeft),
+    },
+    {
+      label: "Gold",
+      message: this.state().hasGold ? "Collected" : "Missing",
+    },
+    {
+      label: "Position",
+      message: `Row ${this.state().board.hunter.row}, column ${this.state().board.hunter.col}`,
+    },
+    {
+      label: "Perception",
+      message: this.perception(),
+    },
+  ]);
 }

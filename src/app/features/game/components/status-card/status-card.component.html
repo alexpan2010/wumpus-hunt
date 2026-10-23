@@ -4,29 +4,13 @@
       <dt>State</dt>
       <dd><app-status-label [status]="state().status" /></dd>
     </div>
-    <div>
-      <dt>Facing</dt>
-      <dd>{{ state().direction }}</dd>
-    </div>
-    <div>
-      <dt>Arrows left</dt>
-      <dd>{{ state().arrowsLeft }}</dd>
-    </div>
-    <div>
-      <dt>Gold</dt>
-      <dd>{{ state().hasGold ? "Collected" : "Missing" }}</dd>
-    </div>
-    <div>
-      <dt>Position</dt>
-      <dd>
-        Row {{ state().board.hunter.row }}, column
-        {{ state().board.hunter.col }}
-      </dd>
-    </div>
-    <div>
-      <dt>Perception</dt>
-      <dd>{{ perception() }}</dd>
-    </div>
+
+    @for (item of statusCardItems(); track item.label) {
+      <div>
+        <dt>{{ item.label }}</dt>
+        <dd>{{ item.message }}</dd>
+      </div>
+    }
   </dl>
   <p class="message" role="status" aria-live="polite" aria-atomic="true">
     {{ state().message }}

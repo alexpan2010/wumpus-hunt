@@ -1,9 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   input,
   output,
 } from "@angular/core";
+
 import { GameState } from "../../../../core/game.types";
 import { ButtonComponent } from "../../../../shared/components/button/button.component";
 import { CardComponent } from "../../../../shared/components/card/card.component";
@@ -22,7 +24,5 @@ export class ControlsCardComponent {
     "forward" | "left" | "right" | "shoot" | "exit" | "restart"
   >();
 
-  get terminal(): boolean {
-    return this.state().status !== "playing";
-  }
+  terminal = computed<boolean>(() => this.state().status !== "playing");
 }

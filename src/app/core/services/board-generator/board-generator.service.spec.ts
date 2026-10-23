@@ -1,17 +1,20 @@
 import { TestBed } from "@angular/core/testing";
+
 import { BoardGeneratorService } from "./board-generator.service";
 
 describe("BoardGeneratorService", () => {
   let service: BoardGeneratorService;
+
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(BoardGeneratorService);
   });
 
   it("creates reserved start and exit cells and unique entity positions", () => {
-    const board = service.generate({ size: 4, pits: 3, arrows: 1 }, () => 0.4);
+    const board = service.generate({ size: 4, pits: 3, arrows: 1 });
     expect(board.hunter).toEqual({ row: 3, col: 0 });
     expect(board.exit).toEqual({ row: 0, col: 3 });
+
     const all = [
       board.hunter,
       board.exit,
@@ -28,12 +31,15 @@ describe("BoardGeneratorService", () => {
     expect(() =>
       service.generate({ size: 1, pits: 0, arrows: 1 }),
     ).toThrowError(/size/);
+
     expect(() =>
       service.generate({ size: 3, pits: -1, arrows: 1 }),
     ).toThrowError(/Pit/);
+
     expect(() =>
       service.generate({ size: 3, pits: 0, arrows: -1 }),
     ).toThrowError(/Arrow/);
+
     expect(() =>
       service.generate({ size: 2, pits: 1, arrows: 0 }),
     ).toThrowError(/Too many pits/);

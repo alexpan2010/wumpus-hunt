@@ -2,29 +2,29 @@
   <div class="controls">
     <app-button
       text="Move forward"
-      [disabled]="terminal"
+      [disabled]="terminal()"
       (clicked)="action.emit('forward')"
     />
     <app-button
       text="Turn left"
       type="outline"
-      [disabled]="terminal"
+      [disabled]="terminal()"
       (clicked)="action.emit('left')"
     />
     <app-button
       text="Turn right"
       type="outline"
-      [disabled]="terminal"
+      [disabled]="terminal()"
       (clicked)="action.emit('right')"
     />
     <app-button
       text="Shoot arrow"
-      [disabled]="terminal"
+      [disabled]="terminal()"
       (clicked)="action.emit('shoot')"
     />
     <app-button
       text="Exit with gold"
-      [disabled]="terminal"
+      [disabled]="terminal()"
       (clicked)="action.emit('exit')"
     />
     <app-button

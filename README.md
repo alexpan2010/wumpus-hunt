@@ -65,12 +65,15 @@ src/
         game-engine/
           game-engine.service.ts
           game-engine.service.spec.ts
-    shared/components/
-      button/
-      input/
-      card/
-      status-label/
-      board-cell/
+    shared/
+      components/
+        button/
+        input/
+        card/
+        status-label/
+        board-cell/
+      utils/
+      styles/
     features/
       game/
         components/
