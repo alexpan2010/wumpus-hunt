@@ -1,12 +1,15 @@
+@use "../../styles/variables" as *;
+
 .card {
-  background: #fff;
-  border: 1px solid #d5d8de;
-  border-radius: 0.65rem;
-  padding: 1rem;
-  box-shadow: 0 1px 2px #0000000b;
+  background: $white;
+  border: 1px solid $light-grey;
+  border-radius: $border-radius-xl;
+  padding: $p-xl;
+  box-shadow: 0 1px 2px $black;
 }
+
 h2 {
-  font-size: 1.05rem;
-  margin: 0 0 1rem;
+  font-size: $font-xl;
+  margin: 0 0 $m-xs;
   font-weight: 700;
 }

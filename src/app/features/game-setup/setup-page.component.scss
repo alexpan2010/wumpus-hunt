@@ -1,21 +1,27 @@
+@use "../../shared/styles/variables" as *;
+
 .setup {
-  width: min(480px, calc(100% - 2rem));
-  margin: 3rem auto;
+  width: min(480px, calc(100% - $spacing-3xl));
+  margin: $m-xl auto;
 }
+
 h1 {
-  font-size: 1.6rem;
-  margin: 0 0 1.25rem;
+  font-size: $font-2xl;
+  margin: 0 0 $m-sm;
 }
+
 form {
   display: grid;
-  gap: 1rem;
+  gap: $spacing-2xl;
 }
+
 .help {
-  color: #555b64;
-  font-size: 0.9rem;
+  color: $dark-grey;
+  font-size: $font-xl;
   margin: 0;
 }
+
 .error {
-  color: #a31c1c;
+  color: $red;
   margin: 0;
 }

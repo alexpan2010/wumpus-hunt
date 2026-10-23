@@ -1,14 +1,18 @@
+@use "../../../../shared/styles/variables" as *;
+
 .controls {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.55rem;
+  gap: $spacing-md;
 }
+
 .hint {
-  color: #555b64;
-  font-size: 0.85rem;
-  margin: 0.85rem 0 0;
+  color: $dark-grey;
+  font-size: $font-md;
+  margin: $m-2xs 0 0;
 }
-@media (max-width: 420px) {
+
+@media (max-width: $sm) {
   .controls {
     grid-template-columns: 1fr;
   }

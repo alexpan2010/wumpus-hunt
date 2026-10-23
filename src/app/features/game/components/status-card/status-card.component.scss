@@ -1,17 +1,21 @@
+@use "../../../../shared/styles/variables" as *;
+
 .status-list {
   margin: 0;
   display: grid;
-  gap: 0.65rem;
+  gap: $spacing-lg;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-2xl;
+    border-bottom: 1px solid $light-grey;
+    padding-bottom: $p-sm;
+  }
 }
-.status-list div {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  border-bottom: 1px solid #eceef1;
-  padding-bottom: 0.45rem;
-}
+
 dt {
-  color: #555b64;
+  color: $dark-grey;
 }
 dd {
   margin: 0;
@@ -20,8 +24,8 @@ dd {
   text-transform: capitalize;
 }
 .message {
-  margin: 1rem 0 0;
-  padding: 0.75rem;
-  background: #f4f5f7;
-  border-radius: 0.35rem;
+  margin: $m-xs 0 0;
+  padding: $p-md;
+  background: $lighter-grey;
+  border-radius: $border-radius-lg;
 }

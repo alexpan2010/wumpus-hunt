@@ -1,38 +1,44 @@
+@use "../../../../shared/styles/variables" as *;
+
 .board {
   display: grid;
-  gap: 0.25rem;
+  gap: $spacing-xs;
   width: min(100%, 560px);
   margin-inline: auto;
 }
+
 .legend {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  gap: $spacing-md $spacing-2xl;
   padding: 0;
-  margin: 1rem 0 0;
-  font-size: 0.85rem;
+  margin: $m-xs 0 0;
+  font-size: $font-md;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
 }
-.legend li {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
+
 .swatch {
-  width: 0.85rem;
-  height: 0.85rem;
-  border: 1px solid #777;
-  border-radius: 0.15rem;
+  width: $spacing-xl;
+  height: $spacing-xl;
+  border: 1px solid $dark-grey;
+  border-radius: $border-radius-sm;
 }
+
 .unexplored {
-  background: #555b64;
+  background: $dark-grey;
 }
 .explored {
-  background: #b9bec6;
+  background: $light-grey;
 }
 .symbol {
   font-weight: 800;
 }
 .hunter-symbol {
-  color: #198754;
+  color: $green;
 }

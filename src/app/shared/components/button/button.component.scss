@@ -1,16 +1,19 @@
+@use "../../styles/variables" as *;
+
 button {
-  border: 1px solid #20242a;
-  border-radius: 0.4rem;
-  padding: 0.65rem 0.9rem;
-  background: #20242a;
+  border: 1px solid $primaryColor;
+  border-radius: $border-radius-lg;
+  padding: $p-md $p-lg;
+  background: $primaryColor;
   color: white;
   cursor: pointer;
-}
-button.outline {
-  background: transparent;
-  color: #20242a;
-}
-button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
+
+  &.outline {
+    background: transparent;
+    color: $primaryColor;
+  }
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
 }

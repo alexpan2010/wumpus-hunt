@@ -1,14 +1,17 @@
+@use "../../styles/variables" as *;
+
 .status {
   display: inline-block;
-  border-radius: 999px;
-  padding: 0.25rem 0.65rem;
-  background: #e8eaee;
-  font-weight: 650;
+  border-radius: $border-radius-xl;
+  padding: $p-xs $p-md;
+  background: $lighter-grey;
+  font-weight: 600;
   text-transform: capitalize;
-}
-.status[data-status="won"] {
-  background: #fff0a8;
-}
-.status[data-status^="dead"] {
-  background: #ffdada;
+
+  &[data-status="won"] {
+    background: $light-gold;
+  }
+  &[data-status^="dead"] {
+    background: $light-red;
+  }
 }

@@ -1,28 +1,31 @@
+@use "../../styles/variables" as *;
+
 .cell {
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  background: #555b64;
-  color: #fff;
-  border: 1px solid #737983;
-  border-radius: 0.2rem;
-  font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+  background: $dark-grey;
+  color: $white;
+  border: 1px solid $grey;
+  border-radius: $border-radius-sm;
+  font-size: clamp($font-sm, 2.5vw, $font-2xl);
   font-weight: 800;
-}
-.cell.visited {
-  background: #b9bec6;
-  color: #20242a;
-  border-color: #d1d4d9;
-}
-.cell.hunter {
-  background: #198754;
-  color: #fff;
-}
-.cell.dead {
-  background: #b42318;
-  color: white;
-}
-.cell.victory {
-  background: #e5b900;
-  color: #20242a;
+
+  &.visited {
+    background: $light-grey;
+    color: $primaryColor;
+    border-color: $light-grey;
+  }
+  &.hunter {
+    background: $green;
+    color: $white;
+  }
+  &.dead {
+    background: $red;
+    color: white;
+  }
+  &.victory {
+    background: $gold;
+    color: $primaryColor;
+  }
 }

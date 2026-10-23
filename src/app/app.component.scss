@@ -1,12 +1,14 @@
+@use "./shared/styles/variables" as *;
+
 .site-header,
 .site-footer {
-  background: #20242a;
-  color: #fff;
-  padding: 0.85rem 1rem;
+  background: $primaryColor;
+  color: $white;
+  padding: $p-lg $p-xl;
   text-align: center;
   font-weight: 700;
 }
 .site-footer {
-  margin-top: 2rem;
-  font-size: 0.9rem;
+  margin-top: $m-lg;
+  font-size: $font-xl;
 }
